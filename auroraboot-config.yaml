@@ -1,3 +1,3 @@
-listen_addr: :8081
-state_dir: "/storage"
+listen_addr: :8080
+state_dir: "$(pwd)"
 container_image: ghcr.io/tbrasser/home-platform:debian-v3.0.11-k3sv1.29.3-k3s1-2
