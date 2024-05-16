@@ -1,16 +1,10 @@
 #!/usr/bin/env bash
-version=v2.3.1
+version=v2.6.5
 
 set -e
 
-command=docker
-
-if command nerdctl &>/dev/null; then
-  command=nerdctl
-fi
-
-$command run --rm -v $PWD:/configs ghcr.io/tyzbit/kairosctl:$version sh -c \
-"""
+curl -L https://github.com/kairos-io/provider-kairos/releases/download/$version/kairosctl-.$version-.linux-.amd64.tar.gz -o - | tar -xvzf - -C .
+chmod +x ./kairosctl
 find . -name cloud-config.yaml | while read config; do 
   echo -n \"\$config: \"; 
   kairosctl validate \$config;
@@ -20,4 +14,3 @@ find . -name cloud-config.yaml | while read config; do
     exit 1
   fi
 done
-""" >&1
