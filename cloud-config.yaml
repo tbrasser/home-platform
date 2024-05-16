@@ -17,12 +17,12 @@ install:
       nvme_core.default_ps_max_latency_us=0
       gfxpayload=800x600x32
       gfxmode=800x600x32
-  extra-dirs-rootfs: &longhorn [/var/lib/longhorn]
+  extra-dirs-rootfs: &extradirs [/var/lib/longhorn]
 
 upgrade:
-  extra-dirs-rootfs: *longhorn
+  extra-dirs-rootfs: *extradirs
 reset:
-  extra-dirs-rootfs: *longhorn
+  extra-dirs-rootfs: *extradirs
 
 kubevip: { enabled: false }
 # -- Not needed because of expand_partition in step "Conditionally partition sda"
