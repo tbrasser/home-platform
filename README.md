@@ -1,4 +1,4 @@
-# kairos-config
+# Home Platform
 
 # Folder Structure
 
