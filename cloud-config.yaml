@@ -2,10 +2,10 @@
 
 # yaml-language-server: $schema=../../schema.json
 users:
-  - name: tyzbit
+  - name: tbrasser
     shell: /bin/bash
     groups: [admin]
-    ssh_authorized_keys: [github:tyzbit]
+    ssh_authorized_keys: [github:tbrasser]
 
 install:
   auto: true
@@ -36,9 +36,9 @@ flux:
   # env:
   #   GITHUB_TOKEN: secretstuff
   github:
-    owner: tyzbit
-    repository: fleet-infra
-    path: clusters/corpus
+    owner: tbrasser
+    repository: home-platform
+    path: manifests
     components-extra: image-reflector-controller,image-automation-controller
     network-policy: "false"
 
@@ -97,13 +97,13 @@ stages:
     # -- These are in this repo
     - name: "Add cluster-specific manifests from GitHub"
       downloads:
-        - url: https://raw.githubusercontent.com/tyzbit/kairos-config/main/clusters/corpus/manifests/tigera-operator.yaml
+        - url: https://raw.githubusercontent.com/tbrasser/home-platform/main/manifests/tigera-operator.yaml
           path: /var/lib/rancher/k3s/server/manifests/tigera-operator.yaml
-        - url: https://raw.githubusercontent.com/tyzbit/kairos-config/main/clusters/corpus/manifests/calico-crds.yaml
+        - url: https://raw.githubusercontent.com/tbrasser/home-platform/main/manifests/calico-crds.yaml
           path: /var/lib/rancher/k3s/server/manifests/calico-crds.yaml
-        - url: https://raw.githubusercontent.com/tyzbit/kairos-config/main/clusters/corpus/manifests/flux-system-namespace.yaml
+        - url: https://raw.githubusercontent.com/tbrasser/home-platform/main/manifests/flux-system-namespace.yaml
           path: /var/lib/rancher/k3s/server/manifests/flux-system-namespace.yaml
-        - url: https://raw.githubusercontent.com/tyzbit/kairos-config/main/clusters/corpus/manifests/kubelet-config.yaml
+        - url: https://raw.githubusercontent.com/tbrasser/home-platform/main/manifests/kubelet-config.yaml
           path: /etc/rancher/k3s/kubelet-config.yaml
 
     # -- (only `commands`,`entities` and `files` may have templating)
