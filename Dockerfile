@@ -19,8 +19,8 @@ RUN apt-get update && \
     wget=1.21.* \
     && \
     apt-get clean && rm -rf /var/lib/apt/lists/* && \
-    echo "TBRASSER_HOME_URL=https://github.com/tbrasser/home-platform" >> /etc/os-release && \
-    echo "TBRASSER_VARIANT=debian" >> /etc/os-release
+    echo "HOME_URL=https://github.com/tbrasser/home-platform" >> /etc/os-release && \
+    echo "VARIANT=debian" >> /etc/os-release
 
 # Update kernel modules
 RUN kernel=$(ls /lib/modules | head -n1) && \
