@@ -42,9 +42,8 @@ k3s:
     # - --node-label "longhorn=primary"
     - --kubelet-arg=config=/etc/rancher/k3s/kubelet-config.yaml
 flux:
-  github:
-    owner: tbrasser
-    repository: home-platform
+  git:
+    url: url=ssh://git@github.com/tbrasser/home-platform.git
     path: manifests
     components-extra: image-reflector-controller,image-automation-controller
     network-policy: "false"
