@@ -2,6 +2,9 @@ name: Build and Push Docker Images with Version Tag
 
 on:
   push:
+    paths:
+      - 'Dockerfile'
+      - 'rootfs/'
     branches:
       - main
 
